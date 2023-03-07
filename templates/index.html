@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Super App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>Good morning 2412!</h1>
+    <form method="post" action="/">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br>
+
+      <label for="gender">Gender:</label>
+      <input type="radio" id="male" name="gender" value="m">
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="f">
+      <label for="female">Female</label><br>
+      <hr>
+      <label for="preferences">Preferences:</label><br>
+      <input type="checkbox" id="preference1" name="preferences" value="p1">
+      <label for="preference1">Preference 1</label><br>
+
+      <input type="checkbox" id="preference2" name="preferences" value="p2">
+      <label for="preference2">Preference 2</label><br>
+
+      <input type="checkbox" id="preference3" name="preferences" value="p3">
+      <label for="preference3">Preference 3</label><br>
+
+      <input type="submit" value="Give me data!">
+    </form>    
+    {% if name %}
+    <p>{{ name }}</p>
+    {% endif %}
+    {% if gender %}
+    <p>{{ gender }}</p>
+    {% endif %}
+    {% if preferences %}
+    <p>{{ preferences }}</p>
+    {% endif %} 
+    {% if preferences %}
+      {% for preference in preferences %}
+      <h2>{{ preference }}</h2>
+      {% endfor %} 
+    {% endif %}
+  </body>
+</html>
+
