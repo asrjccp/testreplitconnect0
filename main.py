@@ -14,7 +14,7 @@ def index():
         preferences = request.form.getlist('preferences')
         pref_text = ''
         for preference in preferences:
-          pref_text = ' ' + preference
+          pref_text += ' ' + preference
         with open('data.txt', 'a') as file:
           file.write(name + ' ' + gender + ' ' + pref_text + ' \n')
     return render_template('index.html', name=name, gender=gender, preferences=preferences)
